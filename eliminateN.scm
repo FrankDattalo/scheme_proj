@@ -20,7 +20,7 @@
   (cond 
     ((null? l2f)      l2f)
     ((pf (head l2f))  (pair (head l2f) (filter-list (tail l2f) pf)))
-    (#t               (filter-list (tail l2f) pf))))
+    (#t               (                 filter-list (tail l2f) pf))))
 
 ; list-concat concatenates two lists together such as 
 ; (l1[1] l1[2] . . l1[N-1] l1[N] l2[1] l2[2] . . . l2[N-1] l2[N])
@@ -48,7 +48,7 @@
     (#t         
       (list-concat
       (list-concat 
-        (quick-sort (filter-list (tail l1) (lambda (i) (<  i (head l1))))) (list (head l1)))
+        (quick-sort (filter-list (tail l1) (lambda (i) (<  i (head l1))))) (pair (head l1) '()))
         (quick-sort (filter-list (tail l1) (lambda (i) (>= i (head l1)))))))))
 
 
